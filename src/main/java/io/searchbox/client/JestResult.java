@@ -67,7 +67,9 @@ public class JestResult {
   }
 
   public String getErrorMessage() {
-    return jsonObject.get("error").getAsString();
+    JsonElement jsonElement = jsonObject.get("error");
+    if(jsonElement==null) return null;
+    return jsonElement.getAsString();
   }
 
   public JsonObject getJsonObject() {
@@ -254,7 +256,8 @@ public class JestResult {
     }
     return facets;
   }
-
+  
+  @Deprecated
   public void setJsonMap(Map<String, Object> resultMap) {
     Gson gson = new Gson();
     String json = gson.toJson(resultMap, Map.class);

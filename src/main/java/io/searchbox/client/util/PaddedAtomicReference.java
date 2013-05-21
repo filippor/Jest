@@ -12,6 +12,10 @@ package io.searchbox.client.util;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class PaddedAtomicReference<T> extends AtomicReference<T> {
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
     public long p2, p3, p4, p5, p6, p7;
 
     public PaddedAtomicReference() {

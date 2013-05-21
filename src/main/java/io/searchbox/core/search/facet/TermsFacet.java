@@ -50,6 +50,11 @@ public class TermsFacet extends Facet {
     }
 
     public class Term {
+        @Override
+      public String toString() {
+        return "Term [name=" + name + ", count=" + count + "]";
+      }
+
         private String name;
         private Integer count;
 

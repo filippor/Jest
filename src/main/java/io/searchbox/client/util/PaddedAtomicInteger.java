@@ -19,6 +19,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PaddedAtomicInteger extends AtomicInteger
 {
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
     public PaddedAtomicInteger()
     {
     }

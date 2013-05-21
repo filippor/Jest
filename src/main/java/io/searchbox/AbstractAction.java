@@ -24,8 +24,9 @@ import com.google.gson.JsonParser;
 
 public abstract class AbstractAction implements Action {
 
+  
     final static Logger log = LoggerFactory.getLogger(AbstractAction.class);
-
+    
     private Object data;
 
     private String URI;

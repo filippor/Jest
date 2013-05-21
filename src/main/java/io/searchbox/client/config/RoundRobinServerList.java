@@ -55,7 +55,7 @@ public class RoundRobinServerList implements ServerList {
     }
 
     @Override
-    public Set getServers() {
+    public Set<String> getServers() {
         return servers;
     }
 

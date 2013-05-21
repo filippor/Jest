@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.routing.HttpRoute;
+import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.PoolingClientConnectionManager;
 import org.apache.http.impl.nio.client.DefaultHttpAsyncClient;
@@ -60,6 +61,7 @@ public class JestClientFactory {
                 httpclient = new DefaultHttpClient();
                 log.debug("Default http client is created without multi threaded option");
             }
+            client.setGsonBuilder(clientConfig.getGsonBuilder());
         } else {
             log.debug("There is no configuration to create http client. Going to create simple client with default values");
             httpclient = new DefaultHttpClient();

@@ -5,17 +5,15 @@ import io.searchbox.Action;
 import io.searchbox.client.config.RoundRobinServerList;
 import io.searchbox.client.config.ServerList;
 import io.searchbox.client.config.discovery.NodeChecker;
-
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-
 import io.searchbox.client.config.exception.NoServerConfiguredException;
 import io.searchbox.client.util.PaddedAtomicReference;
+
+import java.util.LinkedHashSet;
+
 import org.apache.http.StatusLine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.collect.Iterators;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 

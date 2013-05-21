@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.http.conn.routing.HttpRoute;
 
+import com.google.gson.GsonBuilder;
+
 /**
  * @author Dogukan Sonmez
  */
@@ -69,6 +71,8 @@ public class ClientConfig {
 
 
     private TimeUnit discoveryFrequencyTimeUnit;  //TimeUnit     A             A
+
+    private GsonBuilder gsonBuilder;
 
 
     public Map<String, Object> getProperties() {
@@ -153,6 +157,17 @@ public class ClientConfig {
 
     public void setDiscoveryFrequencyTimeUnit(TimeUnit discoveryFrequencyTimeUnit) {
       this.discoveryFrequencyTimeUnit = discoveryFrequencyTimeUnit;
+    }
+
+    public GsonBuilder getGsonBuilder() {
+      if(gsonBuilder == null)
+        gsonBuilder = new GsonBuilder();
+      return gsonBuilder;
+    }
+
+    public void setGsonBuilder(GsonBuilder gsonBuilder) {
+     
+      this.gsonBuilder = gsonBuilder;
     }
 
 

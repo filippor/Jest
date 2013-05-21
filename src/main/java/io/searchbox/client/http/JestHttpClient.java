@@ -1,7 +1,8 @@
 package io.searchbox.client.http;
 
 
-import com.google.gson.*;
+
+
 import io.searchbox.Action;
 import io.searchbox.client.AbstractJestClient;
 import io.searchbox.client.JestClient;
@@ -9,6 +10,12 @@ import io.searchbox.client.JestResult;
 import io.searchbox.client.JestResultHandler;
 import io.searchbox.client.http.apache.HttpDeleteWithEntity;
 import io.searchbox.client.http.apache.HttpGetWithEntity;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Map.Entry;
+import java.util.concurrent.ExecutionException;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
@@ -24,10 +31,11 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Map.Entry;
-import java.util.concurrent.ExecutionException;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 
 
 /**
@@ -42,6 +50,8 @@ public class JestHttpClient extends AbstractJestClient implements JestClient {
     private HttpClient httpClient;
 
     private HttpAsyncClient asyncClient;
+
+    private GsonBuilder gsonBuilder;
 
     public JestResult execute(Action clientRequest) throws IOException {
 
@@ -148,10 +158,11 @@ public class JestHttpClient extends AbstractJestClient implements JestClient {
             if (isJson(data.toString())) {
                 return data.toString();
             } else {
-                return new Gson().toJson(data);
+                
+                return gsonBuilder.create().toJson(data);
             }
         } else {
-            return new Gson().toJson(data);
+            return  gsonBuilder.create().toJson(data);
         }
     }
 
@@ -184,6 +195,10 @@ public class JestHttpClient extends AbstractJestClient implements JestClient {
 
     public void setAsyncClient(HttpAsyncClient asyncClient) {
         this.asyncClient = asyncClient;
+    }
+
+    public void setGsonBuilder(GsonBuilder gsonBuilder) {
+      this.gsonBuilder = gsonBuilder;
     }
 
 }

@@ -20,6 +20,6 @@ public interface ServerList {
      * was generated.  This method is only here to satisfy unit test
      * @return
      */
-    public Set getServers();
+    public Set<String> getServers();
 
 }
