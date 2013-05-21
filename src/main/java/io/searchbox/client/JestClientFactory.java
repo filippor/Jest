@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.routing.HttpRoute;
-import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.PoolingClientConnectionManager;
 import org.apache.http.impl.nio.client.DefaultHttpAsyncClient;

@@ -160,8 +160,10 @@ public class ClientConfig {
     }
 
     public GsonBuilder getGsonBuilder() {
-      if(gsonBuilder == null)
+      if(gsonBuilder == null) {
         gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ss,SSS");
+      }
       return gsonBuilder;
     }
 
